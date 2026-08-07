@@ -5,7 +5,7 @@ Este repositorio funciona como puente entre GitHub y el sitio Wix Harmony de Inm
 ## Archivo principal
 
 - `widget.js`: renderiza las dos propiedades reales, carruseles, estilos y ventana de detalles.
-- `index.html`: versión independiente para pruebas.
+- `index.html`: versión independiente para pruebas y para GitHub Pages.
 
 ## Código para Wix Harmony
 
@@ -22,4 +22,6 @@ Las imágenes se cargan directamente desde Wix Media Manager.
 - Terreno en venta – zona Galindo (5 imágenes)
 - Casa en renta – Calle Betania (19 imágenes)
 
-Para futuras actualizaciones, modificar `widget.js`. Si el CDN conserva una versión anterior temporalmente, purgar la caché de jsDelivr o cambiar el parámetro de versión del script.
+Para futuras actualizaciones, modificar `widget.js` o `index.html` según corresponda.
+
+Último despliegue forzado de GitHub Pages: 2026-08-06 19:28 America/Mexico_City.
