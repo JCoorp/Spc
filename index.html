@@ -15,7 +15,7 @@ html,body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helv
 .media img.is-changing{opacity:0;transform:scale(1.025)}
 .nav{position:absolute;top:50%;transform:translateY(-50%);border:0;width:42px;height:42px;border-radius:50%;background:#000;color:var(--accent);font-size:29px;cursor:pointer;display:grid;place-items:center;transition:transform .2s ease,box-shadow .2s ease;z-index:2}
 .nav:hover{transform:translateY(-50%) scale(1.08);box-shadow:0 0 14px rgba(255,53,189,.5)}
-.prev{left:9px}.next{right:9px}
+.prev{left:9px}.next{right:9px}.single .nav{display:none}
 .body{padding-top:16px;display:flex;flex:1;flex-direction:column;min-height:0}
 .title{font-size:26px;line-height:1.05;font-weight:800;margin:0 0 6px;color:#fff;text-shadow:0 0 9px rgba(255,255,255,.48)}
 .eyebrow{font-size:14px;letter-spacing:1.7px;margin:0 0 18px;line-height:1.2;color:#fff}
@@ -35,26 +35,32 @@ html,body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helv
 <script>
 const properties=[
 {
- title:'Villa de Sol',fullTitle:'Villa de Sol',eyebrow:'RESIDENCIA LUXURY',specs:'2,400 m² · 4 dormitorios',price:'Información disponible con Inmuebles Arteaga',
- description:'Residencia de estilo contemporáneo presentada dentro de la selección destacada de Inmuebles Arteaga.',
- facts:[['Tipo','Residencia'],['Superficie','2,400 m²'],['Dormitorios','4'],['Categoría','Luxury']],
+ title:'Villa de Sol',fullTitle:'Villa de Sol',eyebrow:'PROPIEDAD RESIDENCIAL',specs:'Solicita información',price:'Información disponible con Inmuebles Arteaga',
+ description:'Propiedad residencial disponible. Solicita información sobre ubicación, precio, superficie y condiciones directamente con Inmuebles Arteaga.',
+ facts:[['Tipo','Propiedad residencial'],['Información','Solicitar detalles']],
  images:[
-  'https://static.wixstatic.com/media/427131_60305b50257f461d8975842ca03a935a~mv2.jpg',
-  'https://static.wixstatic.com/media/427131_21c17c59ab664c07b9c5e02dcb0a374e~mv2.jpg',
-  'https://static.wixstatic.com/media/427131_1f1d28e622ca4d9383489eac011c1125~mv2.jpg',
-  'https://static.wixstatic.com/media/427131_2fe0837ab96044cd9c9000612e6c2675~mv2.jpg',
-  'https://static.wixstatic.com/media/427131_efcaed0f99f14881aadd436af4f20df2~mv2.jpg']
+  'https://static.wixstatic.com/media/427131_eb41242fb06c42b3b734df84902300a6~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_22cacd5d4a1144fca6558ed05517da44~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_81150cc9f5bc400da22653e8298198fa~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_a29281ea28b74db3b4383bf63e077438~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_61bd23e76b2740e69b2da600bc7cad27~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_6a84b20bad60418cbe63f2cd3acd26f7~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_60a2f7b4f22046cc815d91eb16e98d89~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_9b732dbd8c6340128fe92ae01c98b430~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_850003f504a64a0180101e4f256cfabb~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_9519dc77bca24bf680fb942202e06ef1~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_fc98fd50c1774a88a0b9bbbca46a8d19~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_200b72a0cd334b848b0377c403a492eb~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_5adcf036d4774cc5951edd5fe59a500f~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_5ec67afc9f3f47dfb29d9a209f667b83~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_8a7f138d73f142a7866dc2ada5916b5b~mv2.jpg']
 },
 {
- title:'Villa Luna',fullTitle:'Villa Luna',eyebrow:'CASA MODERNA',specs:'1,800 m² · 3 dormitorios',price:'Información disponible con Inmuebles Arteaga',
- description:'Casa moderna presentada dentro de la selección destacada de Inmuebles Arteaga.',
- facts:[['Tipo','Casa moderna'],['Superficie','1,800 m²'],['Dormitorios','3'],['Categoría','Residencial']],
+ title:'Villa Luna',fullTitle:'Villa Luna',eyebrow:'PROPIEDAD RESIDENCIAL',specs:'Solicita información',price:'Información disponible con Inmuebles Arteaga',
+ description:'Propiedad residencial disponible. Solicita información sobre ubicación, precio, superficie y condiciones directamente con Inmuebles Arteaga.',
+ facts:[['Tipo','Propiedad residencial'],['Información','Solicitar detalles']],
  images:[
-  'https://static.wixstatic.com/media/427131_45103262126f4bd88e5da124433eb330~mv2.jpg',
-  'https://static.wixstatic.com/media/427131_2e74032e8c9e4cd795ba6ad394e2ed09~mv2.jpg',
-  'https://static.wixstatic.com/media/427131_aff77c7dc31840288f622eb1faba60cf~mv2.jpg',
-  'https://static.wixstatic.com/media/427131_936034ff7d5f4af986234477629390ef~mv2.jpg',
-  'https://static.wixstatic.com/media/427131_158936390d364503af933369e466e114~mv2.jpg']
+  'https://static.wixstatic.com/media/427131_02faa914d4044638b394b4816aa5d722~mv2.jpg']
 },
 {
  title:'Terreno en Galindo',fullTitle:'Terreno en venta – zona Galindo',eyebrow:'TERRENO EN VENTA',specs:'Zona Galindo · Solicita información',price:'Precio: solicitar información',
@@ -97,13 +103,14 @@ const grid=document.getElementById('grid');
 properties.forEach(p=>{
   p.images.forEach(src=>{const pre=new Image();pre.src=src});
   const card=document.createElement('article');card.className='card';card.dataset.index='0';
+  if(p.images.length===1)card.classList.add('single');
   card.innerHTML=`<div class="media"><img src="${p.images[0]}" alt="${p.fullTitle}"><button class="nav prev" aria-label="Imagen anterior">‹</button><button class="nav next" aria-label="Imagen siguiente">›</button></div><div class="body"><h2 class="title">${p.title}</h2><p class="eyebrow">${p.eyebrow}</p><p class="specs">${p.specs}</p><button class="button">VER DETALLES</button></div>`;
   const media=card.querySelector('.media'),img=card.querySelector('img');
   let timer=null,busy=false;
-  const changeTo=i=>{if(busy)return;busy=true;img.classList.add('is-changing');setTimeout(()=>{card.dataset.index=String(i);img.src=p.images[i];requestAnimationFrame(()=>requestAnimationFrame(()=>img.classList.remove('is-changing')));setTimeout(()=>{busy=false},540)},240)};
-  const move=d=>{const i=(Number(card.dataset.index)+d+p.images.length)%p.images.length;changeTo(i)};
+  const changeTo=i=>{if(busy||p.images.length<2)return;busy=true;img.classList.add('is-changing');setTimeout(()=>{card.dataset.index=String(i);img.src=p.images[i];requestAnimationFrame(()=>requestAnimationFrame(()=>img.classList.remove('is-changing')));setTimeout(()=>{busy=false},540)},240)};
+  const move=d=>{if(p.images.length<2)return;const i=(Number(card.dataset.index)+d+p.images.length)%p.images.length;changeTo(i)};
   const stopAuto=()=>{if(timer){clearInterval(timer);timer=null}};
-  const startAuto=()=>{stopAuto();timer=setInterval(()=>move(1),4000)};
+  const startAuto=()=>{stopAuto();if(p.images.length>1)timer=setInterval(()=>move(1),4000)};
   card.querySelector('.prev').onclick=()=>{move(-1);startAuto()};
   card.querySelector('.next').onclick=()=>{move(1);startAuto()};
   media.addEventListener('mouseenter',stopAuto);media.addEventListener('mouseleave',startAuto);
