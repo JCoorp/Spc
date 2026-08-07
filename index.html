@@ -22,6 +22,8 @@ html,body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helv
 .specs{font-size:15px;color:var(--muted);margin:0;line-height:1.35}
 .button{margin-top:auto;width:100%;height:58px;background:#111;color:#fff;border:1px solid #eee;font-size:18px;letter-spacing:2.5px;font-weight:800;cursor:pointer;box-shadow:0 0 15px rgba(255,255,255,.23);text-shadow:0 0 6px rgba(255,255,255,.22)}
 .button:hover{border-color:var(--accent);color:var(--accent)}
+.button:disabled{cursor:not-allowed;opacity:.38;border-color:#777;color:#aaa;box-shadow:none;text-shadow:none}
+.button:disabled:hover{border-color:#777;color:#aaa}
 .modal{position:fixed;inset:0;z-index:30;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;padding:16px;overflow:auto}.modal.open{display:flex}
 .dialog{width:min(700px,96vw);max-height:92vh;overflow:auto;background:#111;border:1px solid #ddd;padding:24px;position:relative}.close{position:absolute;right:12px;top:8px;border:0;background:transparent;color:white;font-size:30px;cursor:pointer}.dialog h2{font-size:26px;margin:0 42px 8px 0}.price{color:var(--accent);font-size:20px;font-weight:700;margin:0 0 14px}.dialog p{font-size:16px;line-height:1.5;color:#e8e8e8}.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 18px;margin-top:16px}.fact{border-top:1px solid #333;padding-top:8px}.fact b{display:block;font-size:12px;text-transform:uppercase;letter-spacing:1px}.fact span{display:block;color:#ddd;margin-top:3px;font-size:14px}
 @media(max-width:1180px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.card{height:620px;padding:24px}.media{height:330px;flex-basis:330px}.title{font-size:29px}.eyebrow{font-size:16px}.specs{font-size:17px}.button{height:64px;font-size:21px}}
@@ -56,7 +58,7 @@ const properties=[
   'https://static.wixstatic.com/media/427131_8a7f138d73f142a7866dc2ada5916b5b~mv2.jpg']
 },
 {
- title:'Casa en Real de San Isidro',fullTitle:'Casa en Fraccionamiento Real de San Isidro',eyebrow:'FRACCIONAMIENTO REAL DE SAN ISIDRO',specs:'Para más información contáctanos',price:'Para más información contáctanos',
+ title:'Casa en Real de San Isidro',fullTitle:'Casa en Fraccionamiento Real de San Isidro',eyebrow:'FRACCIONAMIENTO REAL DE SAN ISIDRO',specs:'Para más información contáctanos',price:'Para más información contáctanos',disabledDetails:true,
  description:'Casa ubicada en el Fraccionamiento Real de San Isidro. Para más información contáctanos.',
  facts:[['Tipo','Casa'],['Ubicación','Fraccionamiento Real de San Isidro'],['Información','Contáctanos']],
  images:['https://static.wixstatic.com/media/427131_02faa914d4044638b394b4816aa5d722~mv2.jpg']
@@ -103,7 +105,7 @@ properties.forEach(p=>{
   p.images.forEach(src=>{const pre=new Image();pre.src=src});
   const card=document.createElement('article');card.className='card';card.dataset.index='0';
   if(p.images.length===1)card.classList.add('single');
-  card.innerHTML=`<div class="media"><img src="${p.images[0]}" alt="${p.fullTitle}"><button class="nav prev" aria-label="Imagen anterior">‹</button><button class="nav next" aria-label="Imagen siguiente">›</button></div><div class="body"><h2 class="title">${p.title}</h2><p class="eyebrow">${p.eyebrow}</p><p class="specs">${p.specs}</p><button class="button">VER DETALLES</button></div>`;
+  card.innerHTML=`<div class="media"><img src="${p.images[0]}" alt="${p.fullTitle}"><button class="nav prev" aria-label="Imagen anterior">‹</button><button class="nav next" aria-label="Imagen siguiente">›</button></div><div class="body"><h2 class="title">${p.title}</h2><p class="eyebrow">${p.eyebrow}</p><p class="specs">${p.specs}</p><button class="button" ${p.disabledDetails?'disabled aria-disabled="true"':''}>VER DETALLES</button></div>`;
   const media=card.querySelector('.media'),img=card.querySelector('img');
   let timer=null,busy=false;
   const changeTo=i=>{if(busy||p.images.length<2)return;busy=true;img.classList.add('is-changing');setTimeout(()=>{card.dataset.index=String(i);img.src=p.images[i];requestAnimationFrame(()=>requestAnimationFrame(()=>img.classList.remove('is-changing')));setTimeout(()=>{busy=false},540)},240)};
@@ -113,7 +115,8 @@ properties.forEach(p=>{
   card.querySelector('.prev').onclick=()=>{move(-1);startAuto()};
   card.querySelector('.next').onclick=()=>{move(1);startAuto()};
   media.addEventListener('mouseenter',stopAuto);media.addEventListener('mouseleave',startAuto);
-  card.querySelector('.button').onclick=()=>openModal(p);
+  const detailButton=card.querySelector('.button');
+  if(!p.disabledDetails)detailButton.onclick=()=>openModal(p);
   grid.appendChild(card);startAuto();
 });
 const modal=document.getElementById('modal');
