@@ -7,26 +7,25 @@
 <style>
 :root{--bg:#000;--card:#111;--text:#fff;--muted:#ddd;--accent:#ff35bd;--border:#bfc0c2}
 *{box-sizing:border-box}
-html,body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;overflow:hidden}
-.grid{width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;padding:0}
-.card{border:1px solid var(--border);background:var(--card);padding:26px 26px 18px;min-width:0;height:620px;display:flex;flex-direction:column;overflow:hidden}
-.media{position:relative;width:100%;height:330px;flex:0 0 330px;overflow:hidden;background:#151515}
+html,body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}
+.grid{width:100%;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;padding:0}
+.card{border:1px solid var(--border);background:var(--card);padding:18px 18px 16px;min-width:0;height:610px;display:flex;flex-direction:column;overflow:hidden}
+.media{position:relative;width:100%;height:285px;flex:0 0 285px;overflow:hidden;background:#151515}
 .media img{width:100%;height:100%;display:block;object-fit:cover;opacity:1;transform:scale(1);transition:opacity .5s ease,transform .8s cubic-bezier(.22,.61,.36,1);will-change:opacity,transform}
 .media img.is-changing{opacity:0;transform:scale(1.025)}
-.nav{position:absolute;top:50%;transform:translateY(-50%);border:0;width:46px;height:46px;border-radius:50%;background:#000;color:var(--accent);font-size:31px;cursor:pointer;display:grid;place-items:center;transition:transform .2s ease,box-shadow .2s ease,color .2s ease;z-index:2}
+.nav{position:absolute;top:50%;transform:translateY(-50%);border:0;width:42px;height:42px;border-radius:50%;background:#000;color:var(--accent);font-size:29px;cursor:pointer;display:grid;place-items:center;transition:transform .2s ease,box-shadow .2s ease;z-index:2}
 .nav:hover{transform:translateY(-50%) scale(1.08);box-shadow:0 0 14px rgba(255,53,189,.5)}
-.prev{left:12px}.next{right:12px}
-.counter,.progress{display:none}
-.body{padding-top:20px;display:flex;flex:1;flex-direction:column;min-height:0}
-.title{font-size:29px;line-height:1.05;font-weight:800;margin:0 0 6px;color:#fff;text-shadow:0 0 9px rgba(255,255,255,.48)}
-.eyebrow{font-size:16px;letter-spacing:2px;margin:0 0 20px;line-height:1.2;color:#fff}
-.specs{font-size:17px;color:var(--muted);margin:0;line-height:1.35}
-.button{margin-top:auto;width:100%;height:64px;background:#111;color:#fff;border:1px solid #eee;font-size:21px;letter-spacing:3px;font-weight:800;cursor:pointer;box-shadow:0 0 15px rgba(255,255,255,.23);text-shadow:0 0 6px rgba(255,255,255,.22)}
+.prev{left:9px}.next{right:9px}
+.body{padding-top:16px;display:flex;flex:1;flex-direction:column;min-height:0}
+.title{font-size:26px;line-height:1.05;font-weight:800;margin:0 0 6px;color:#fff;text-shadow:0 0 9px rgba(255,255,255,.48)}
+.eyebrow{font-size:14px;letter-spacing:1.7px;margin:0 0 18px;line-height:1.2;color:#fff}
+.specs{font-size:15px;color:var(--muted);margin:0;line-height:1.35}
+.button{margin-top:auto;width:100%;height:58px;background:#111;color:#fff;border:1px solid #eee;font-size:18px;letter-spacing:2.5px;font-weight:800;cursor:pointer;box-shadow:0 0 15px rgba(255,255,255,.23);text-shadow:0 0 6px rgba(255,255,255,.22)}
 .button:hover{border-color:var(--accent);color:var(--accent)}
 .modal{position:fixed;inset:0;z-index:30;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;padding:16px;overflow:auto}.modal.open{display:flex}
 .dialog{width:min(700px,96vw);max-height:92vh;overflow:auto;background:#111;border:1px solid #ddd;padding:24px;position:relative}.close{position:absolute;right:12px;top:8px;border:0;background:transparent;color:white;font-size:30px;cursor:pointer}.dialog h2{font-size:26px;margin:0 42px 8px 0}.price{color:var(--accent);font-size:20px;font-weight:700;margin:0 0 14px}.dialog p{font-size:16px;line-height:1.5;color:#e8e8e8}.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 18px;margin-top:16px}.fact{border-top:1px solid #333;padding-top:8px}.fact b{display:block;font-size:12px;text-transform:uppercase;letter-spacing:1px}.fact span{display:block;color:#ddd;margin-top:3px;font-size:14px}
-@media(max-width:760px){html,body{overflow:auto}.grid{grid-template-columns:1fr;gap:18px}.card{height:610px;max-width:430px;margin:auto}.media{height:325px;flex-basis:325px}.facts{grid-template-columns:1fr}}
-@media(max-width:420px){.card{height:570px;padding:20px}.media{height:285px;flex-basis:285px}.title{font-size:25px}.eyebrow{font-size:14px}.specs{font-size:15px}.button{height:58px;font-size:18px}}
+@media(max-width:1180px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.card{height:620px;padding:24px}.media{height:330px;flex-basis:330px}.title{font-size:29px}.eyebrow{font-size:16px}.specs{font-size:17px}.button{height:64px;font-size:21px}}
+@media(max-width:620px){.grid{grid-template-columns:1fr;gap:18px}.card{height:600px;max-width:430px;margin:auto;padding:20px}.media{height:315px;flex-basis:315px}.facts{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.media img,.nav{transition:none}}
 </style>
 </head>
@@ -35,40 +34,71 @@ html,body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helv
 <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true"><div class="dialog"><button class="close" aria-label="Cerrar">×</button><h2 id="mTitle"></h2><div id="mPrice" class="price"></div><p id="mDescription"></p><div id="mFacts" class="facts"></div></div></div>
 <script>
 const properties=[
-{title:'Terreno en Galindo',fullTitle:'Terreno en venta – zona Galindo',eyebrow:'TERRENO EN VENTA',specs:'Zona Galindo · Solicita información',price:'Precio: solicitar información',description:'Terreno disponible para venta en la zona de Galindo. Actualmente no se cuenta con ficha técnica publicada. Para conocer precio, superficie, ubicación exacta y condiciones de venta, solicita mayor información a Inmuebles Arteaga.',facts:[['Tipo','Terreno'],['Operación','Venta'],['Ubicación','Zona Galindo'],['Información','Solicitar detalles']],images:[
-'https://static.wixstatic.com/media/427131_8ac1d5610e284325a793505ba6f2e36c~mv2.jpg',
-'https://static.wixstatic.com/media/427131_85d6573613774917863afba35afb3ae8~mv2.jpg',
-'https://static.wixstatic.com/media/427131_27ee609ce1144e908ea75e12fcd33d96~mv2.jpg',
-'https://static.wixstatic.com/media/427131_a9543453aa094c728305097d7007e586~mv2.jpg',
-'https://static.wixstatic.com/media/427131_4361642c3d2a4f36b3828aada3e9f700~mv2.jpg']},
-{title:'Casa en Calle Betania',fullTitle:'Casa en renta – Calle Betania',eyebrow:'CASA EN RENTA · $11,000 MXN/MES',specs:'250 m² · 2 recámaras · Jardín 50 m²',price:'$11,000 MXN / mes',description:'Casa en renta ubicada en Calle Betania, C.P. 76807, San Juan del Río, en una zona tranquila y de rápido acceso. Cuenta con 250 m² de terreno, 2 recámaras amplias, sala y comedor, cocina con área de lavado integrada, jardín privado de 50 m² y estacionamiento techado para 2 vehículos. Se aceptan mascotas pequeñas, sujetas a condiciones.',facts:[['Terreno','250 m²'],['Recámaras','2'],['Jardín','50 m²'],['Estacionamiento','2 vehículos'],['Ubicación','Calle Betania, C.P. 76807, San Juan del Río'],['Mascotas','Pequeñas, sujetas a condiciones']],images:[
-'https://static.wixstatic.com/media/427131_9e18d114787d4daeba517d3c55132e32~mv2.jpg',
-'https://static.wixstatic.com/media/427131_4fe66786b58349fb9544f5bc6ef7f044~mv2.jpg',
-'https://static.wixstatic.com/media/427131_35fddcafb55641679eab0284d03ee20a~mv2.jpg',
-'https://static.wixstatic.com/media/427131_f1a541cddf404f4f99aca0b704d60781~mv2.jpg',
-'https://static.wixstatic.com/media/427131_f3425f2b03084cc78643436edd7117d9~mv2.jpg',
-'https://static.wixstatic.com/media/427131_5ee9c6e1a55441bfad48d9e984d42405~mv2.jpg',
-'https://static.wixstatic.com/media/427131_d7625e15576f4b2398f83f0c33bd729d~mv2.jpg',
-'https://static.wixstatic.com/media/427131_75e6a390261c43d0a45b56deb5f006a4~mv2.jpg',
-'https://static.wixstatic.com/media/427131_f0d2a211ec2e4afe8314631ffdd1fc80~mv2.jpg',
-'https://static.wixstatic.com/media/427131_b9584aa77442476180d0ec74001f2e30~mv2.jpg',
-'https://static.wixstatic.com/media/427131_e8cdb2f013f943f892d3d8ce760047e4~mv2.jpg',
-'https://static.wixstatic.com/media/427131_467c15b5c8c04907bcb4f373fead3617~mv2.jpg',
-'https://static.wixstatic.com/media/427131_60bb7013ab284a8f8285c87590560b67~mv2.jpg',
-'https://static.wixstatic.com/media/427131_8cbd2bbb9ad348999dc6722cd4b1ff35~mv2.jpg',
-'https://static.wixstatic.com/media/427131_add98e03d2f3473283e41fc4b737e54d~mv2.jpg',
-'https://static.wixstatic.com/media/427131_21d38ade17b44f09904689151d8b9d10~mv2.jpg',
-'https://static.wixstatic.com/media/427131_060a5ce0e395494db0ef9cac3c040442~mv2.jpg',
-'https://static.wixstatic.com/media/427131_5d3ca14bd565437f8d396fd89b2df110~mv2.jpg',
-'https://static.wixstatic.com/media/427131_684ee24bb5d047349b595706f1f56c78~mv2.jpg']}
+{
+ title:'Villa de Sol',fullTitle:'Villa de Sol',eyebrow:'RESIDENCIA LUXURY',specs:'2,400 m² · 4 dormitorios',price:'Información disponible con Inmuebles Arteaga',
+ description:'Residencia de estilo contemporáneo presentada dentro de la selección destacada de Inmuebles Arteaga.',
+ facts:[['Tipo','Residencia'],['Superficie','2,400 m²'],['Dormitorios','4'],['Categoría','Luxury']],
+ images:[
+  'https://static.wixstatic.com/media/427131_60305b50257f461d8975842ca03a935a~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_21c17c59ab664c07b9c5e02dcb0a374e~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_1f1d28e622ca4d9383489eac011c1125~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_2fe0837ab96044cd9c9000612e6c2675~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_efcaed0f99f14881aadd436af4f20df2~mv2.jpg']
+},
+{
+ title:'Villa Luna',fullTitle:'Villa Luna',eyebrow:'CASA MODERNA',specs:'1,800 m² · 3 dormitorios',price:'Información disponible con Inmuebles Arteaga',
+ description:'Casa moderna presentada dentro de la selección destacada de Inmuebles Arteaga.',
+ facts:[['Tipo','Casa moderna'],['Superficie','1,800 m²'],['Dormitorios','3'],['Categoría','Residencial']],
+ images:[
+  'https://static.wixstatic.com/media/427131_45103262126f4bd88e5da124433eb330~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_2e74032e8c9e4cd795ba6ad394e2ed09~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_aff77c7dc31840288f622eb1faba60cf~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_936034ff7d5f4af986234477629390ef~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_158936390d364503af933369e466e114~mv2.jpg']
+},
+{
+ title:'Terreno en Galindo',fullTitle:'Terreno en venta – zona Galindo',eyebrow:'TERRENO EN VENTA',specs:'Zona Galindo · Solicita información',price:'Precio: solicitar información',
+ description:'Terreno disponible para venta en la zona de Galindo. Actualmente no se cuenta con ficha técnica publicada. Para conocer precio, superficie, ubicación exacta y condiciones de venta, solicita mayor información a Inmuebles Arteaga.',
+ facts:[['Tipo','Terreno'],['Operación','Venta'],['Ubicación','Zona Galindo'],['Información','Solicitar detalles']],
+ images:[
+  'https://static.wixstatic.com/media/427131_8ac1d5610e284325a793505ba6f2e36c~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_85d6573613774917863afba35afb3ae8~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_27ee609ce1144e908ea75e12fcd33d96~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_a9543453aa094c728305097d7007e586~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_4361642c3d2a4f36b3828aada3e9f700~mv2.jpg']
+},
+{
+ title:'Casa en Calle Betania',fullTitle:'Casa en renta – Calle Betania',eyebrow:'CASA EN RENTA · $11,000 MXN/MES',specs:'250 m² · 2 recámaras · Jardín 50 m²',price:'$11,000 MXN / mes',
+ description:'Casa en renta ubicada en Calle Betania, C.P. 76807, San Juan del Río, en una zona tranquila y de rápido acceso. Cuenta con 250 m² de terreno, 2 recámaras amplias, sala y comedor, cocina con área de lavado integrada, jardín privado de 50 m² y estacionamiento techado para 2 vehículos. Se aceptan mascotas pequeñas, sujetas a condiciones.',
+ facts:[['Terreno','250 m²'],['Recámaras','2'],['Jardín','50 m²'],['Estacionamiento','2 vehículos'],['Ubicación','Calle Betania, C.P. 76807, San Juan del Río'],['Mascotas','Pequeñas, sujetas a condiciones']],
+ images:[
+  'https://static.wixstatic.com/media/427131_9e18d114787d4daeba517d3c55132e32~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_4fe66786b58349fb9544f5bc6ef7f044~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_35fddcafb55641679eab0284d03ee20a~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_f1a541cddf404f4f99aca0b704d60781~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_f3425f2b03084cc78643436edd7117d9~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_5ee9c6e1a55441bfad48d9e984d42405~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_d7625e15576f4b2398f83f0c33bd729d~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_75e6a390261c43d0a45b56deb5f006a4~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_f0d2a211ec2e4afe8314631ffdd1fc80~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_b9584aa77442476180d0ec74001f2e30~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_e8cdb2f013f943f892d3d8ce760047e4~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_467c15b5c8c04907bcb4f373fead3617~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_60bb7013ab284a8f8285c87590560b67~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_8cbd2bbb9ad348999dc6722cd4b1ff35~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_add98e03d2f3473283e41fc4b737e54d~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_21d38ade17b44f09904689151d8b9d10~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_060a5ce0e395494db0ef9cac3c040442~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_5d3ca14bd565437f8d396fd89b2df110~mv2.jpg',
+  'https://static.wixstatic.com/media/427131_684ee24bb5d047349b595706f1f56c78~mv2.jpg']
+}
 ];
 const grid=document.getElementById('grid');
 properties.forEach(p=>{
   p.images.forEach(src=>{const pre=new Image();pre.src=src});
-  const card=document.createElement('article');
-  card.className='card';card.dataset.index='0';
+  const card=document.createElement('article');card.className='card';card.dataset.index='0';
   card.innerHTML=`<div class="media"><img src="${p.images[0]}" alt="${p.fullTitle}"><button class="nav prev" aria-label="Imagen anterior">‹</button><button class="nav next" aria-label="Imagen siguiente">›</button></div><div class="body"><h2 class="title">${p.title}</h2><p class="eyebrow">${p.eyebrow}</p><p class="specs">${p.specs}</p><button class="button">VER DETALLES</button></div>`;
-  const media=card.querySelector('.media');const img=card.querySelector('img');
+  const media=card.querySelector('.media'),img=card.querySelector('img');
   let timer=null,busy=false;
   const changeTo=i=>{if(busy)return;busy=true;img.classList.add('is-changing');setTimeout(()=>{card.dataset.index=String(i);img.src=p.images[i];requestAnimationFrame(()=>requestAnimationFrame(()=>img.classList.remove('is-changing')));setTimeout(()=>{busy=false},540)},240)};
   const move=d=>{const i=(Number(card.dataset.index)+d+p.images.length)%p.images.length;changeTo(i)};
@@ -76,8 +106,7 @@ properties.forEach(p=>{
   const startAuto=()=>{stopAuto();timer=setInterval(()=>move(1),4000)};
   card.querySelector('.prev').onclick=()=>{move(-1);startAuto()};
   card.querySelector('.next').onclick=()=>{move(1);startAuto()};
-  media.addEventListener('mouseenter',stopAuto);
-  media.addEventListener('mouseleave',startAuto);
+  media.addEventListener('mouseenter',stopAuto);media.addEventListener('mouseleave',startAuto);
   card.querySelector('.button').onclick=()=>openModal(p);
   grid.appendChild(card);startAuto();
 });
